@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Cancer Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel = "icon" href =  
+"{{ url_for('static', filename='css/icon.png') }}" 
+        type = "image/x-icon"> 
+          
+    </head> 
+
+</head>
+
+<body style="overflow: scroll;">
+ <div class="login" >
+	<h1>Cancer Prediction </h1>
+<h6>
+  Please Enter values from 1 to 10
+</h6>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    
+    <input type="text" name="thickness" placeholder="Clump Thickness" required="required" />
+        <input type="text" name="uniformity_size" placeholder="Uniformity of Cell Size" required="required" />
+    <input type="text" name="uniformity_shape" placeholder="Uniformity of Cell Shape" required="required" />
+    <input type="text" name="marginal_adhesion" placeholder="Experience" required="required" />
+        <input type="text" name="epithelial_size" placeholder="Single Epithilial Cell Size" required="required" />
+    <input type="text" name="bare_nuclei" placeholder="Bare Nuclei" required="required" />
+    <input type="text" name="bland_chromatin" placeholder="Bland Chromatin" required="required" />
+        <input type="text" name="Normal Nucleoli" placeholder="Normal Nucleoli" required="required" />
+		<input type="text" name="Mitoses" placeholder="Mitoses" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <div class="{{txt_class}}">
+    {{ prediction_text }} 
+   </div>
+  
+
+ </div>
+ <footer class="footer">
+  <p>Saumya Ranjan<br>
+  <a href="mailto:ranjansaumya4@gmail.com" style="background: -webkit-linear-gradient(white, red);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ranjansaumya4@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
